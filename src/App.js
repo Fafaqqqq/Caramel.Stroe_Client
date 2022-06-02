@@ -1,23 +1,74 @@
-import logo from './logo.svg';
+import {Route, Routes, BrowserRouter as Router} from "react-router-dom";
+
+
 import './App.css';
+import Header from "./components/header/Header";
+import MainImages from "./components/main_images/MainImages";
+import OurShop from "./components/our_shop/OurShop";
+import Footer from "./components/footer/Footer";
+import Catalog from "./components/catalog/Catalog";
+import Products from "./components/products/Products";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Header/>
+        <Routes>
+            <Route path={'/'} element={
+                <div>
+                    <MainImages/>
+                    <OurShop/>
+                </div>
+            }/>
+            
+            <Route path={'/our_shop'} element={<div>
+
+            </div>}/>
+            <Route path={'/contacts'} element={<div>
+
+            </div>}/>
+            <Route path={'/liked'} element={<div>
+
+            </div>}/>
+            <Route path={'/basket'} element={<div>
+
+            </div>}/>
+            <Route path={'/me'} element={<div>
+
+            </div>}/>
+
+            <Route path={'/shop'} element={<div>
+                <Catalog/>
+                <Products type="all"/>
+            </div>}/>
+
+            <Route path="/shop/skirts" element={<div>
+                <Catalog/>
+                <Products type="skirts"/>
+            </div>}/>
+            <Route path="/shop/dresses" element={<div>
+                <Catalog/>
+                <Products type="dresses"/>
+            </div>}/>
+            <Route path="/shop/pants" element={<div>
+                <Catalog/>
+                <Products type="pants"/>
+            </div>}/>
+            <Route path="/shop/shoes" element={<div>
+                <Catalog/>
+                <Products type="shoes"/>
+            </div>}/>
+            
+            <Route path="/shop/sportswear" element={<div>
+                <Catalog/>
+                <Products type="sportswear"/>
+            </div>}/>
+            <Route path="/shop/underwear" element={<div>
+                <Catalog/>
+                <Products type="underwear"/>
+            </div>}/>
+        </Routes>
+        <Footer/>
     </div>
   );
 }
