@@ -50,7 +50,7 @@ function Header() {
                 <li className={'menu__images'} onClick={()=>changeRoute('basket')}>
                     <img src={basket} alt=""/>
                 </li>
-                <li className={'menu__images'} onClick={()=>changeRoute('me')}>
+                <li className={'menu__images'} onClick={()=>changeRoute('login')}>
                     <img src={me} alt=""/>
                 </li>
             </ul>

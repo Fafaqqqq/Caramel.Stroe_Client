@@ -1,13 +1,15 @@
 import {Route, Routes, BrowserRouter as Router} from "react-router-dom";
 
-
 import './App.css';
 import Header from "./components/header/Header";
 import MainImages from "./components/main_images/MainImages";
 import OurShop from "./components/our_shop/OurShop";
 import Footer from "./components/footer/Footer";
 import Catalog from "./components/catalog/Catalog";
-import Products from "./components/products/Products";
+import Products from "./Products";
+import Auth from './components/auth/Auth'
+import Login from "./components/login/Login";
+import Register from "./components/register/Register";
 
 function App() {
   return (
@@ -32,9 +34,15 @@ function App() {
             </div>}/>
             <Route path={'/basket'} element={<div>
 
+            </div>}/>   
+            <Route path={'/login'} element={<div>
+                <Auth/>
+                <Login/>
             </div>}/>
-            <Route path={'/me'} element={<div>
-
+            
+            <Route path={'/register'} element={<div>
+                <Auth/>
+                <Register/>
             </div>}/>
 
             <Route path={'/shop'} element={<div>
@@ -67,6 +75,7 @@ function App() {
                 <Catalog/>
                 <Products type="underwear"/>
             </div>}/>
+            
         </Routes>
         <Footer/>
     </div>
