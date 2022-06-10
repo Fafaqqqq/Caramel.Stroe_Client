@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './products.styles.css' 
+import styles from './products.styles.css'
 
 let ProductsJSON = require('./products-all.json')
 
@@ -42,7 +42,7 @@ export default function Products(props) {
                         return (                    
                             <div className={'products__pair__item products__pair__item-left'}>
                                 {/* <img src={`http://localhost:5000/product${index + 1}.svg`} alt="" className={'products__pair__item__image'}/> */}
-                                <img src={require(`${value.path}`)} alt="" className={'products__pair__item__image'}/>
+                                {/* <img src={require(`${value.path}`)} alt="" className={'products__pair__item__image'}/> */}
                                 <ProductsContent param={value}/>
                             </div>        
                         )
@@ -53,7 +53,7 @@ export default function Products(props) {
                             <div className={'products__pair__item products__pair__item-right'}>
                                 {/* <img src={`http://localhost:5000/product${index + 1}.svg`} alt="" className={'products__pair__item__image'}/> */}
                                 <ProductsContent param={value}/>
-                                <img src={require(`${value.path}`)} alt="" className={'products__pair__item__image'}/>
+                                {/* <img src={require(`${value.path}`)} alt="" className={'products__pair__item__image'}/> */}
                             </div>        
                         )
                     }

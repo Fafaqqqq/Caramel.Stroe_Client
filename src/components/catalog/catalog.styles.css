@@ -35,6 +35,10 @@
     cursor: pointer;
 }
 
+.category-item:hover {
+    text-decoration: underline;
+}
+
 .category-item__text-active {
     font-weight: bold;
     text-decoration: underline;

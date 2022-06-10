@@ -1,11 +1,15 @@
-import React from "react"
+import React, { useContext } from "react"
 import './header.styles.css'
 import {useNavigate} from 'react-router'
 import basket from '../../images/basket.svg'
 import heart from '../../images/heart.svg'
 import me from '../../images/me.svg'
+import { observer } from "mobx-react-lite"
+import { Context } from '../../index'
 
-function Header() {
+const Header = observer(() => {
+    const {user} = useContext(Context)
+
     const navigate = useNavigate();
 
     const changeRoute = (url) => {
@@ -44,18 +48,22 @@ function Header() {
                         |
                     </span>
                 </li>
-                <li className={'menu__images'} onClick={()=>changeRoute('liked')}>
-                    <img src={heart} alt=""/>
-                </li>
                 <li className={'menu__images'} onClick={()=>changeRoute('basket')}>
                     <img src={basket} alt=""/>
                 </li>
-                <li className={'menu__images'} onClick={()=>changeRoute('login')}>
+                <li className={'menu__images'} onClick={()=> {
+                    if (!user.isAuth){
+                        changeRoute('login')
+                    }
+                    else {
+                        changeRoute('me')
+                    }
+                }}>
                     <img src={me} alt=""/>
                 </li>
             </ul>
         </div>
     );
-}
+})
 
 export default Header;
